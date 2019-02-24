@@ -1,0 +1,54 @@
+[
+    {
+        "method": "saveToJsonFile",
+        "params":[ ],
+        "returns":true
+    },
+    {
+        "method": "resetFromJsonFile",
+        "params":[ ],
+	"returns":true
+        
+    },
+    {
+	"method": "getTo",
+	"params": ["1"],
+	"returns": " "
+    },
+    {
+	"method": "getFrom",
+	"params": ["1"],
+	"returns": " "
+    },
+    {
+	"method": "getDate",
+	"params": ["1"],
+	"returns": " "
+    },
+    {
+	"method": "getSubject",
+	"params": ["1"],
+	"returns": " "
+    },
+    {
+	"method": "getMessage",
+	"params": ["1"],
+	"returns": " "
+    },
+    {
+	"method": "getLibrarySize",
+	"params": [],
+	"returns": 1
+    },
+    {
+	"method": "add",
+	"params": ["to","from","date","subject","message"],
+	"returns": true
+    },
+    {
+	"method": "remove",
+	"params": [1],
+	"returns": true
+    }
+    
+]

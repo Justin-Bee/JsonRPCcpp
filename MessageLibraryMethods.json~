@@ -1,0 +1,14 @@
+[
+    {
+        "method": "saveToJsonFile",
+        "params":[ ],
+        "returns":true
+    },
+    {
+        "method": "resetFromJsonFile",
+        "params":[ ],
+	"returns":true
+        
+    }
+    
+]

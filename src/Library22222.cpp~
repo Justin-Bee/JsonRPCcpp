@@ -1,0 +1,90 @@
+#include "Library.hpp"
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <json/json.h>
+
+using namespace std;
+
+/*
+ * Copyright 2019 Justin Bee,
+ *
+ * This software is the intellectual property of the author,
+ * and can not be distributed, used, copied, or
+ * reproduced, in whole or in part, for any purpose, commercial
+ * or otherwise. The author grants the ASU
+ * Software Engineering program the right to copy, execute,
+ * and evaluate this work for the purpose of
+ * determining performance of the author in coursework, and for
+ * Software Engineering program evaluation,
+ * so long as this copyright and right-to-use statement is kept
+ * in-tact in such use.
+ * All other uses are prohibited and reserved to the author.
+ *
+ * Purpose: A message class.
+ *
+ * Ser321 Principles of Distributed Software Systems
+ * @author Justin Bee jbee2@asu.edu
+ * @version February 2019
+ */
+
+Library::Library(){
+}
+
+void Library::initLibraryFromJsonFile(string fileName){
+  ifstream jsonFile(fileName.c_str());
+   string line;
+   cout << "The content of the Json file as a string: " << endl;
+   if(jsonFile.is_open()){
+      while(getline(jsonFile,line)){
+         cout << line << endl;
+      }
+   }else{
+      cout << "Json file not opened properly" << endl;
+   }
+   jsonFile.close();
+  Json::Reader reader;
+  Json::Value root;
+  std::ifstream json(fileName.c_str(), std::ifstream::binary);
+  reader.parse(json,root);
+ 
+    for(int i =0; i <root.size(); i++){
+      std::string toAUser = root[i]["to"].asString();
+      std::string fromAUser = root[i]["from"].asString();
+      std::string aSubject = root[i]["subject"].asString();
+      std::string aDate = root[i]["date"].asString();
+      std::string aMsg = root[i]["message"].asString();
+      Message *  message = new Message(toAUser, fromAUser, aSubject, aDate,
+      				      aMsg);
+      messages[i] = *message;
+       message->print();
+    }
+    
+ }      
+
+
+void Library::toJsonFile(string fileName){
+
+
+}
+
+void Library::add(Message msg){
+
+}
+
+void Library::remove(Message msg){
+
+}
+
+
+
+
+
+
+
+
+
